@@ -9,6 +9,7 @@ var fs = require("fs")
 
 var spotify = new Spotify(keys.spotify);
 
+
 var command = process.argv[2]
 var target = process.argv[3]
 
@@ -31,16 +32,18 @@ else if (command === "concert-this") {
 else if (command === "movie-this") {
     axios.get("http://www.omdbapi.com/?t=" + target + "&y=&plot=short&apikey=trilogy").then(function (response) {
         console.log("-----------------------------------------------------------------------")
-    console.log(response.data.Title)
-    console.log(response.data.Year)
-    console.log(response.data.Rated)
-    console.log(response.data.Country)
-    console.log(response.data.Language)
-    console.log(response.data.Plot)
-    console.log(response.data.Actors)
+        console.log(response.data.Title)
+        console.log(response.data.Year)
+        console.log(response.data.Rated)
+        console.log(response.data.Country)
+        console.log(response.data.Language)
+        console.log(response.data.Plot)
+        console.log(response.data.Actors)
     })
 }
 else if (command === "do-what-it-says") {
+    fs.readFile('random.txt', 'utf8')
+    console.log(data)
 
 }
 else { console.log("Please choose one") }
