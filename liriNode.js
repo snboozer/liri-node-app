@@ -7,13 +7,19 @@ var Spotify = require("node-spotify-api")
 var fs = require("fs")
 
 
-var spotify = new Spotify(keys.spotify);
 
 
 var command = process.argv[2]
 var target = process.argv[3]
 
-if (command === "spotify-this-song") {
+if (command === "spotify-this-song"){
+    function getSpotify(songName){
+        var spotify = new Spotify(keys.spotify);
+
+    spotify.search({type:'track', query:songName})
+    console.log (data)
+}
+
 
 }
 else if (command === "concert-this") {
@@ -42,8 +48,16 @@ else if (command === "movie-this") {
     })
 }
 else if (command === "do-what-it-says") {
-    fs.readFile('random.txt', 'utf8')
-    console.log(data)
+    fs.readFile('random.txt', 'utf8',function(error, data) {
+
+        if (error) {
+          return console.log(error);
+        }
+      
+        console.log(data);
+      
+      });
+      
 
 }
 else { console.log("Please choose one") }
