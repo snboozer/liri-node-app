@@ -16,7 +16,6 @@ if (command === "spotify-this-song") {
     spotify.search({ type: 'track', query: target, limit: 1 }).then(function (response) {
         var spotifyArr = response.tracks.items;
         for (i = 0; i < spotifyArr.length; i++) {
-            console.log(response);
             console.log(response.tracks.items[i].album.artists[0].name)
             console.log(response.tracks.items[i].name)
             console.log(response.tracks.items[i].external_urls.spotify)
